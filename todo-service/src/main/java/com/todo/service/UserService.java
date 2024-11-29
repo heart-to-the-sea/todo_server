@@ -12,5 +12,7 @@ import java.util.List;
 * @createDate 2024-11-29 11:20:49
 */
 public interface UserService {
+    R<?> login(UserBo userBo);
+    R<?> logout(UserBo userBo);
     R<?> list(UserBo userBo);
 }

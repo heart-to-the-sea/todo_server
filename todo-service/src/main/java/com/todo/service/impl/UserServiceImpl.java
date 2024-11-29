@@ -1,16 +1,14 @@
 package com.todo.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import cn.dev33.satoken.stp.StpUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.todo.domain.User;
 import com.todo.domain.bo.UserBo;
 import com.todo.domain.vo.UserVo;
 import com.todo.mapper.UserMapper;
 import com.todo.service.UserService;
 import com.todo.utils.R;
 import lombok.RequiredArgsConstructor;
-import org.apache.ibatis.annotations.Delete;
 import org.springframework.stereotype.Service;
 import java.util.List;
 /**
@@ -22,6 +20,19 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
     private final UserMapper userMapper;
+    public R<?> login(UserBo userBo) {
+        if("admin".equals(userBo.getName()) && "123456".equals(userBo.getPassword())) {
+            StpUtil.login(userBo.getId());
+            System.out.println(StpUtil.getLoginId());
+            return R.success("登录成功: "+StpUtil.getTokenValue());
+        }
+        return R.fail("登陆失败");
+    }
+    public R<?> logout(UserBo userBo) {
+        StpUtil.logout();
+        return R.success("退出成功");
+    }
+
     public R<?> list(UserBo user) {
         PageHelper.startPage(user.getPageNum(), user.getPageSize());
         List<UserVo> userVoList=userMapper.selectPageList(user);

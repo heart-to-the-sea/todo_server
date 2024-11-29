@@ -14,8 +14,18 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/user")
 public class UserController {
     private final UserService userService;
+    @PostMapping("/login")
+    public R<?> login(@RequestBody UserBo userBo) {
+       return userService.login(userBo);
+    }
+    @PostMapping("/logout")
+    public R<?> logout(@RequestBody UserBo userBo) {
+        return userService.logout(userBo);
+    }
+
     @PostMapping("/list")
     public R<?> list(@RequestBody UserBo userBo) {
         return userService.list(userBo);
     }
+
 }
