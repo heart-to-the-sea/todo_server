@@ -27,5 +27,25 @@ public class UserController {
     public R<?> list(@RequestBody UserBo userBo) {
         return userService.list(userBo);
     }
+    @PostMapping("/insert")
+    public R<?> insert(@RequestBody UserBo userBo) {
+        return userService.addUser(userBo);
+    }
+    @PostMapping("/update")
+    public R<?> update(@RequestBody UserBo userBo) {
+        return userService.updateUser(userBo);
+    }
+    @PostMapping("/delete")
+    public R<?> delete(@RequestBody UserBo userBo) {
+        return userService.deleteUser(userBo);
+    }
+    @PostMapping("/updatePassword")
+    public R<?> updatePassword(@RequestBody UserBo userBo) {
+        return userService.updatePassword(userBo);
+    }
+    @PostMapping("/info")
+    public R<?> info(@RequestBody UserBo userBo) {
+        return userService.userInfo(userBo);
+    }
 
 }

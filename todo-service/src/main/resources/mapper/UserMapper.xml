@@ -20,4 +20,29 @@
         select *
         from user
     </select>
+
+    <insert id="insert">
+        INSERT INTO user
+            (name,account,password,phone)
+        VALUES (#{name},#{account},#{password}, #{phone});
+    </insert>
+
+    <update id="update">
+        UPDATE user SET name=#{name} , account=#{account}, phone=#{phone} WHERE id = #{id}
+    </update>
+
+    <update id="updatePassword">
+        UPDATE user SET password = #{password} WHERE id = #{id}
+    </update>
+
+    <delete id="delete">
+        delete from user WHERE  id = #{id}
+    </delete>
+
+    <select id="selectUserById" resultType="com.todo.domain.vo.UserVo">
+        select * from user WHERE id = #{id}
+    </select>
+    <select id="selectUserByPhone" resultType="com.todo.domain.vo.UserVo">
+        select * from user WHERE phone = #{phone}
+    </select>
 </mapper>

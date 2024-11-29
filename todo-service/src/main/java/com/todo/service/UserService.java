@@ -15,4 +15,9 @@ public interface UserService {
     R<?> login(UserBo userBo);
     R<?> logout(UserBo userBo);
     R<?> list(UserBo userBo);
+    R<?> addUser(UserBo userBo);
+    R<?> updateUser(UserBo userBo);
+    R<?> deleteUser(UserBo userBo);
+    R<?> userInfo(UserBo userBo);
+    R<?> updatePassword(UserBo userBo);
 }

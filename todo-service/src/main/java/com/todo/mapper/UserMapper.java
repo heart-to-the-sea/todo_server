@@ -14,7 +14,13 @@ import java.util.List;
 * @Entity generator.domain.User
 */
 @Mapper
-public interface UserMapper {
+public interface UserMapper extends BaseMapper<User> {
 
     List<UserVo> selectPageList(@Param("param") UserBo userBo);
+    int insert(User user);
+    int update(UserBo userBo);
+    int delete(@Param("id") Long id);
+    UserVo selectUserById(@Param("id") Long id);
+    UserVo selectUserByPhone(@Param("phone") String phone);
+    int updatePassword(@Param("id") Long id, @Param("password") String password);
 }

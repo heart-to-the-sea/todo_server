@@ -31,7 +31,7 @@ public class UserBo extends PageRequest implements Serializable  {
     /**
      * 
      */
-    private String count;
+    private String account;
 
     /**
      * 
@@ -60,7 +60,7 @@ public class UserBo extends PageRequest implements Serializable  {
         UserBo other = (UserBo) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
             && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
-            && (this.getCount() == null ? other.getCount() == null : this.getCount().equals(other.getCount()))
+            && (this.getAccount() == null ? other.getAccount() == null : this.getAccount().equals(other.getAccount()))
             && (this.getPassword() == null ? other.getPassword() == null : this.getPassword().equals(other.getPassword()))
             && (this.getPhone() == null ? other.getPhone() == null : this.getPhone().equals(other.getPhone()));
     }
@@ -71,7 +71,7 @@ public class UserBo extends PageRequest implements Serializable  {
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
         result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
-        result = prime * result + ((getCount() == null) ? 0 : getCount().hashCode());
+        result = prime * result + ((getAccount() == null) ? 0 : getAccount().hashCode());
         result = prime * result + ((getPassword() == null) ? 0 : getPassword().hashCode());
         result = prime * result + ((getPhone() == null) ? 0 : getPhone().hashCode());
         return result;
@@ -85,7 +85,7 @@ public class UserBo extends PageRequest implements Serializable  {
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
         sb.append(", name=").append(name);
-        sb.append(", count=").append(count);
+        sb.append(", account=").append(account);
         sb.append(", password=").append(password);
         sb.append(", phone=").append(phone);
         sb.append(", serialVersionUID=").append(serialVersionUID);
